@@ -1,18 +1,18 @@
 .vnav{
-	&-text{
-		@extend .block-inline;
-		padding: 0.5em 0;
-		color: setColor(corp);
-		@extend .bold;
-	}
-	@include resp-max(md){
-		&-logo{
-			img{
-				vertical-align: middle;
-				max-height: 28px;
-			}
-		}
-	}
+	// &-text{
+	// 	@extend .block-inline;
+	// 	padding: 0.5em 0;
+	// 	color: setColor(corp);
+	// 	@extend .bold;
+	// }
+	// @include resp-max(md){
+	// 	&-logo{
+	// 		img{
+	// 			vertical-align: middle;
+	// 			max-height: 28px;
+	// 		}
+	// 	}
+	// }
 	
 	@if ( map-get($grid-system, menuExists) == true ){
 

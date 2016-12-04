@@ -1,49 +1,85 @@
-.fixed{
-  position: fixed;
-  width: 100%;
-  left: 0;
-  &.bottom{
-    bottom: 0;
+.bg{
+  &-black{
+    background-color: #1a1a1a;
+  }
+  &-grey{
+    &-dark{
+      background-color: #323232;
+    }
+    &-normal{
+      background-color: #414141;
+    }
+    &-light{
+      background-color: #4c4c4c;
+      &-normal{
+        background-color: #fefefe;
+      }
+      &-very{
+        background-color: #eaeaea;
+      }
+    }
   }
 }
-
-.vtabs{
-  &-wrap,
-  &-links,
-  &-content{
-    @extend .cf;
+.color{
+  &-light{
+    color: setColor(light);
   }
-  &-links{
-    margin-bottom: 15px;
+  &-red{
+    color: setColor(red);
   }
-  &-list{
-    a{
+}
+.bg{
+  &-common{
+    @include bg("../img/bg-common.jpg");
+  }
+  &-every{
+    @include bg("../img/bg-every.jpg");
+  }
+  &-inner{
+    padding-top: 45px;
+    padding-bottom: 45px;
+    @include resp-min(md){
+      padding: 75px 65px;
+      &-big{
+        padding-top: 90px;
+        padding-bottom: 90px;
+      }
+    }
+    &-shadow{
+      @include shadow(0 0 100px rgba(11,11,12,.05));
+    }
+  }
+}
+.warning{
+  &-inner{
+    @include resp-max(lg){
+      font-size: 11px;
+      width: 80%;
       display: block;
-      padding: 10px;
-      @include borderR(5px);
-      background-color: #f0f0f0;
-      text-decoration: none;
-      color: inherit;
-      
+      margin-right: auto;
+      margin-left: auto;
     }
-    li{
-      display: inline-block;
-      &.active{
-        a{
-          background-color: setColor(corp);
-        }
-      }
-    }
-    
   }
-  &-content{
-    border: 1px solid #ddd;
-    padding: 30px;
-    &-inner{
-      display: none;
-      &.active{
-        display: block;
-      }
+}
+.content{
+  background-color: #fbfbfb;
+  &-wrapper{
+    margin-top: 50px;
+  }
+  &-wrap{
+    margin-bottom: 30px;
+  }
+  &-wrap:nth-child(even) &{
+    background-color: #f2f2f2;
+  }
+  &-wrap-empty &{
+    background-color: transparent !important;
+  }
+  @include resp-min(md){
+    min-height: 340px;
+    padding: 50px 50px 30px;
+    &-wrap:first-child &-title{
+      margin-top: 10px;
     }
   }
 }

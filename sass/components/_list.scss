@@ -1,43 +1,82 @@
 .list{
   li{
     @extend .relative;
-    &:after{
+    &:before{
       @extend .pseudo;
       top: 0;
     }
   }
-  &-cancel{
+  &-numeric{
+    counter-reset: item;
     li{
-      &:after{
-        width: 37px;
-        height: 37px;
-        @include bg("../img/cancel.png", 0 0, no-repeat, cover);
+      &:before{
+        content: "0" counter(item);
+        counter-increment: item;
+        color: setColor(black);
+        @extend .blacks;
+      }
+    }
+    &-small{
+      li{
+        &:before{
+          font-size: 42px;
+        }
+      }
+    }
+    &-half{
+      font-size: 0;
+      li{
+        font-size: 14px;
+        &:before{
+          line-height: 1;
+        }
       }
     }
   }
   @include resp-max(sm){
-    text-align: center;
-    margin-bottom: 30px;
-    &:after{
-      left: 50%;
-    }
-    &-cancel{
-      li{
-        padding-top: 40px;
-        &:after{
-          margin-left: -18.5px;
+    &-numeric{
+      &-half{
+        text-align: center;
+        li{
+          margin-bottom: 15px;
+          &:before{
+            display: block;
+            position: relative;
+          }
+          &:last-child{
+            margin-bottom: 0;
+          }
         }
       }
     }
   }
   @include resp-min(sm){
-    margin-bottom: 15px;
-    &:after{
+    &:before{
       left: 0;
     }
-    &-cancel{
-      li{
-        padding-left: 50px;
+    &-numeric{
+      &-half{
+        li{
+          display: inline-block;
+          width: 50%;
+          padding-left: 60px;
+          &:before{
+            left: 0;
+            top: 50%;
+            margin-top: -21px;
+          }
+        }
+      }
+    }
+    &-inner{
+      margin-bottom: 10px;
+    }
+  }
+  @include resp-max(lg){
+    &-numeric{
+      &-half{
+        padding-left: 15px;
+        padding-right: 15px;
       }
     }
   }

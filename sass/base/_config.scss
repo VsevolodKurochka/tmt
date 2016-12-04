@@ -1,12 +1,15 @@
 //SETTING FOR DEFAULT FONT
 $colors: (
 	black: (
-		base 	: #000,
+		base 	: #333,
 		light : #ddd,
-		dark	: #676767
+		dark	: #1a1a1a
 	),
 	green: (
 		base 	: #5bb85d
+	),
+	red: (
+		base  : #bb1b29
 	),
  	corp: (
 		base	: #ff8001,
@@ -36,9 +39,9 @@ $grid-system: (
 	columnName            : "vcol",
 	width 								: 100%,
 	gutter 								: 15px,
-	containerWidth 				: 1170px,
+	containerWidth 				: 1000px,
 	containerSmallWidth 	: 970px,
-	menuExists            : true,
+	menuExists            : false,
 	menuViewBreakpoint    : map-get($breakpoints, md)
 );
 

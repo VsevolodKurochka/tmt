@@ -106,6 +106,16 @@ End:  HIDDEN AND VISIBLE UTILITIES
   @extend .cf;
   @extend %padding-block;
   @extend .relative;
+  &-small{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  &-big{
+    @include resp-min(md){
+      padding-top: 90px;
+      padding-bottom: 90px;
+    }
+  }
 }
 .vpull{
   &-left{
