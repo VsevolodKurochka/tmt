@@ -16,3 +16,9 @@
     vertical-align: middle;   
   }
 }
+.shadow{
+  @include shadow(0 0 100px rgba(11,11,12,.05));
+}
+.ovh{
+  overflow: hidden;
+}

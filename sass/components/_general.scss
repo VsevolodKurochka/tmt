@@ -34,3 +34,8 @@ a,button{
 strong,.strong,b,.b{
   @extend .blacks !optional;
 }
+@for $i from 1 through 3{
+  .z-index#{$i}{
+    z-index: #{$i};
+  }
+}

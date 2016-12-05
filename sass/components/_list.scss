@@ -6,14 +6,37 @@
       top: 0;
     }
   }
+  &-check{
+    li{
+      &:before{
+        width: 13px;
+        height: 11px;
+      }
+    }
+    &-gray{
+      li{
+        &:before{
+          @include bg("../img/check-gray.png");
+        }
+      }
+    }
+  }
   &-numeric{
     counter-reset: item;
     li{
       &:before{
-        content: "0" counter(item);
+        content: counter(item) ".";
         counter-increment: item;
-        color: setColor(black);
-        @extend .blacks;
+        left: 0;
+      }
+    }
+    &-has-zero{
+      li{
+        &:before{
+          content: "0" counter(item);
+          color: setColor(black);
+          @extend .blacks;
+        }
       }
     }
     &-small{
@@ -49,10 +72,22 @@
         }
       }
     }
+    &-check{
+      li{
+        padding-top: 15px;
+        &:before{
+          top: 0;
+          left: 50%;
+          margin-left: -6.5px;
+        }
+      }
+    }
   }
   @include resp-min(sm){
-    &:before{
-      left: 0;
+    li{
+      &:before{
+        left: 0;
+      }
     }
     &-numeric{
       &-half{
@@ -70,6 +105,18 @@
     }
     &-inner{
       margin-bottom: 10px;
+    }
+    &-check{
+      li{
+        padding-left: 30px;
+        &:before{
+          left: 5px;
+          top: 5px;
+        }
+        @include resp-max(md){
+          min-height: 70px;
+        }
+      }
     }
   }
   @include resp-max(lg){

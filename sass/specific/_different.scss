@@ -1,6 +1,363 @@
+
+.color{
+  &-light{
+    color: setColor(light);
+  }
+  &-red{
+    color: setColor(red);
+  }
+  &-grey{
+    color: #515255;
+    &-light{
+      color: #cccccc;
+    }
+  }
+}
+
+.bg{
+  &-common{
+    @include bg("../img/bg-common.jpg");
+  }
+  &-every{
+    @include bg("../img/bg-every.jpg");
+  }
+  &-tech{
+    @include bg("../img/bg-tech.jpg");
+  }
+  &-unicum{
+    @include bg("../img/bg-unicum.jpg");
+  }
+  &-inner{
+    padding-top: 45px;
+    padding-bottom: 45px;
+    @include resp-min(md){
+      padding: 75px 65px;
+      &-big{
+        padding-top: 90px;
+        padding-bottom: 90px;
+      }
+      &-vertical{
+        padding-top: 140px;
+        padding-bottom: 140px;
+      }
+    }
+    &-shadow{
+      @extend .shadow;
+    }
+    &-list{
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+  }
+}
+.warning{
+  &-inner{
+    @include resp-max(lg){
+      font-size: 11px;
+      width: 80%;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}
+.content{
+  @extend .relative;
+  background-color: #fff;
+  z-index: 1;
+  padding: 30px 15px;
+  &-title{
+    @extend .ttu;
+    @extend .blacks;
+    font-size: 16px;
+    margin-bottom: 25px;
+    p{
+      max-width: 160px;
+      display: block;
+    }
+  }
+  &-body{
+    color: #666666;
+  }
+  &-number{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 100px;
+    height: 80px;
+    line-height: 1;
+    color: #f0f0f0;
+    z-index: -1;
+    @extend .blacks;
+  }
+  &-wrapper{
+    margin-top: 50px;
+  }
+  &-wrap{
+    margin-bottom: 30px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &-wrap:nth-child(odd) &{
+    @extend .shadow;
+  }
+  &-wrap:nth-child(even) &{
+    background-color: #f2f2f2;
+  }
+  &-wrap:nth-child(even) &-number{
+    color: setColor(light);
+  }
+  &-wrap-empty &{
+    background-color: transparent !important;
+  }
+  @include resp-min(sm){
+    padding: 60px 30px;
+    min-height: 340px;
+  }
+  @include resp-min(md){
+    
+    padding: 50px 25px 10px;
+    &-wrap:first-child &-title{
+      margin-top: 10px;
+    }
+    &-number{
+      font-size: 142px;
+      height: 115px;
+    }
+    &-body{
+      &-empty{
+        position: absolute;
+        right: 60px;
+        bottom: 60px;
+        text-align: right;
+        width: 80%;
+      }
+    }
+  }
+}
+.bigman{
+  &-image{
+    font-size: 0;
+  }
+  &-text{
+    &-inner{
+      padding: 30px 15px;
+      background-color: setColor(light);
+      color: #666666;
+      @extend .shadow;
+    }
+    p{
+      margin-bottom: 14px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    &-fluid{
+      color: #c0c0c0;
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+  &-title{
+    font-size: 16px;
+    margin-bottom: 30px;
+    @extend .blacks;
+    @extend .ttu;
+  }
+  @include resp-min(md){
+    &-image{
+      width: 50%;
+      float: left;
+      padding-top: 85px;
+      img{
+        max-width: none;
+        height: 887px;
+      }
+    }
+    &-text{
+      width: 50%;
+      position: absolute;
+      top: 0;
+      right: 0;
+      &-fluid{
+        padding-top: 50px;
+        padding-bottom: 125px;
+        
+        &-inner{
+          padding-right: 50px;
+        }
+      }
+      &-inner{
+        padding: 30px 50px 80px;
+      }
+    }
+  }
+  @include resp-max(md){
+    &-image{
+      padding-left: 15px;
+      padding-right: 15px;
+      img{
+        max-height: 500px;
+      }
+    }
+  }
+}
+.team{
+  @extend .relative;
+  min-height: 300px;
+  overflow: hidden;
+  background-color: #333333;
+  &-wrap{
+    margin-bottom: 30px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &-empty{
+    background-color: transparent;
+    &-text{
+      @extend .blacks;
+      @extend .ttu;
+      color: setColor(light);
+      max-width: 200px;
+      font-size: 20px; 
+    }
+  }
+  &-img{
+    position: absolute;
+    top: 15px;
+    font-size: 0;
+    z-index: 1;
+    img{
+      max-width: none;
+    }
+  }
+  &-inf{  
+    position: relative;
+    padding: 30px 15px;
+    background-color: rgba(51, 51, 51, 0.75);
+    z-index: 2;
+    @extend .transition;
+  }
+  &-title{
+    color: setColor(light);
+    font-size: 16px;
+    @extend .ttu;
+    @extend .blacks;
+  }
+  &-pos{
+    color: #bfbfbf;
+  }
+  @include resp-max(sm){
+    min-height: 200px;
+    &-empty{
+      min-height: auto;
+    }
+  }
+  @include resp-min(sm){
+    min-height: 300px;
+    &-inf{
+      padding: 50px 45px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      
+    }
+    &:hover &-inf{
+      opacity: 1;
+    }
+    &-empty-text{
+      position: absolute;
+      left: 65px;
+      top: 50%;
+      
+    }
+  }
+}
+.about{
+  &-image,
+  &-text{
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  &-image{
+    font-size: 0;
+    img{
+      display: inline-block;
+    }
+  }
+  &-text{
+    font-size: 16px;
+    &-inner{
+      font-style: italic;
+      color: #666666;     
+    }
+  }
+  &-inner{
+    @extend .relative;
+    padding-left: 45px;
+    padding-top: 5px;
+    &:before{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 33px;
+      height: 30px;
+      @include bg("../img/quote.png");
+    }
+  }
+  &-title{
+    @extend .blacks;
+    margin-bottom: 20px;
+  }
+  @include resp-min(xs){
+    &-text{
+      font-size: 20px;
+    }
+    &-inner{
+      padding-left: 60px;
+    }
+  }
+  @include resp-max(md){
+    &-image{
+      text-align: center;
+      background-color: #fbfbfb;
+    }
+    &-image,
+    &-text{
+      padding-top: 15px;
+    }
+  }
+  @include resp-min(md){
+    &-image,
+    &-text{
+      width: 50%;
+      float: left;
+    }
+    &-image{
+      img{
+        width: auto !important;
+      }
+    }
+  }
+}
 .bg{
   &-black{
     background-color: #1a1a1a;
+    &-default{
+      background-color: #333333;
+      .title{
+        color: setColor(light);
+        &-substrate{
+          color: #414141;
+        }
+      }
+    }
   }
   &-grey{
     &-dark{
@@ -20,66 +377,51 @@
     }
   }
 }
-.color{
-  &-light{
-    color: setColor(light);
+.unicum{
+  &-text{
+    p{
+      margin-bottom: 10px;
+    }
   }
-  &-red{
-    color: setColor(red);
+  &-list{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    li{
+      padding-left: 30px;
+    }
+    @include resp-min(md){
+      margin-top: 45px;
+      margin-bottom: 45px;
+    }
   }
 }
-.bg{
-  &-common{
-    @include bg("../img/bg-common.jpg");
-  }
-  &-every{
-    @include bg("../img/bg-every.jpg");
-  }
-  &-inner{
-    padding-top: 45px;
-    padding-bottom: 45px;
-    @include resp-min(md){
-      padding: 75px 65px;
-      &-big{
-        padding-top: 90px;
-        padding-bottom: 90px;
+.text{
+  &-opp{
+    color: setColor(light);
+    &-small{
+      font-size: 12px;
+    }
+    &-inner{
+      @include resp-min(md){
+        &-big,
+        &-small{
+          float: left;
+        }
+        &-big{
+          width: 120px;
+        }
+        &-small{
+          width: 100px;
+          position: relative;
+          left: 15px;
+          top: 3px;
+        }
       }
     }
-    &-shadow{
-      @include shadow(0 0 100px rgba(11,11,12,.05));
-    }
-  }
-}
-.warning{
-  &-inner{
-    @include resp-max(lg){
-      font-size: 11px;
-      width: 80%;
-      display: block;
-      margin-right: auto;
-      margin-left: auto;
-    }
-  }
-}
-.content{
-  background-color: #fbfbfb;
-  &-wrapper{
-    margin-top: 50px;
-  }
-  &-wrap{
-    margin-bottom: 30px;
-  }
-  &-wrap:nth-child(even) &{
-    background-color: #f2f2f2;
-  }
-  &-wrap-empty &{
-    background-color: transparent !important;
-  }
-  @include resp-min(md){
-    min-height: 340px;
-    padding: 50px 50px 30px;
-    &-wrap:first-child &-title{
-      margin-top: 10px;
+    @include resp-max(md){
+      &-wrap{
+        margin-bottom: 15px;
+      }
     }
   }
 }

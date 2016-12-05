@@ -1,29 +1,71 @@
-.main-form{
+.mainform{
   width: 100%;
-  @include resp-min(sm){
-    width: 300px;
-  }
+  font-size: 0;
+  @extend .relative;
   @extend .center-block;
   input{
-    border: 1px solid #eeeeee;
-    @include borderR(5px);
+    border: 1px solid transparent;
     text-align: left;
-    width: 100%;
     max-width: 100%;
-    padding: 15px;
-    margin-bottom: 15px;
+    padding: 13.5px 35px;
     color: #000;
-    font-size: 15px;
+    font-size: 14px;
     outline: none;
-    box-shadow: 0px 0px 10px 1px rgba(253, 188, 48, 0.17);
     @extend .block-inline;
     @extend .regular;
     @extend .transition;
-    &:focus{
-      border-color: setColor(corp);
+    // &:focus{
+    //   border-color: setColor(corp);
+    // }
+  }
+  // .vbtn{
+  //   width: 100%;
+  // }
+  &-submit{
+    padding: 17px 35px;
+    font-size: 10px;
+    @extend .ttu;
+    color: setColor(light);
+  }
+  input,&-submit{
+    @include borderR(23px);
+  }
+  &-inline{
+    input{
+      background-color: #4c4c4c;
+      color: #fff;
+      &:first-child{
+        background-color: #414141;
+      }
     }
   }
-  .vbtn{
-    width: 100%;
+  @include resp-max(sm){
+    &-inline{
+      input, .vbtn{
+        width: 100%;
+        display: block;
+        margin-bottom: 15px;
+      }
+    }
+  }
+  @include resp-min(sm){
+    &-inline{
+      height: 46px;
+      overflow: hidden;
+      input{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 55%;
+        padding-right: 150px;
+        &:nth-child(2){
+          left: 40%;
+        }
+      }
+    }
+    &-inline &-submit{
+      position: absolute;
+      right: 0;
+    }
   }
 }

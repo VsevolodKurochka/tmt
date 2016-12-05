@@ -24,6 +24,12 @@ $h3-font-sizes: (
   line-height: 1.1;
   margin: 0 0 15px;
   z-index: 1;
+  &-nom{
+    margin-bottom: 0;
+  }
+  &-sm{
+    margin-bottom: 40px;
+  }
   &-small{
     font-size: 20px;
   }
@@ -33,6 +39,10 @@ $h3-font-sizes: (
     font-size: 13px;
     line-height: 1;
     color: #c0c0c0;
+    text-transform: none;
+  }
+  &.has-substrate{
+    padding-top: 40px;
   }
   &-substrate{
     position: absolute;
@@ -44,9 +54,9 @@ $h3-font-sizes: (
   }
   @include resp-max(xs){
     &-substrate{
-      font-size: 24px;
-      left: 20px;
-      top: -15px;
+      font-size: 30px;
+      left: 15px;
+      top: 15px;
     }
   }
   @include resp-max(sm){
@@ -85,7 +95,7 @@ $h3-font-sizes: (
   @include resp-min(lg){
     &-substrate{
       left: 5px;
-      top: -37px;
+      top:  5px;
       font-size: 62px;
     }
   }
@@ -93,6 +103,7 @@ $h3-font-sizes: (
 .h2{
   @extend .regular;
   font-size: 14px;
+  margin-bottom: 15px;
 }
 .h3{
   @include font-size($h3-font-sizes);

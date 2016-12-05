@@ -112,6 +112,12 @@
       background-color: lighten(setColor(corp), 15%);
     }
   }
+  &-red{
+    background-color: setColor(red);
+    &:before{
+      background-color: lighten(setColor(red), 15%);
+    }
+  }
   &-single{
     @include resp-min(sm){
       margin-top: 70px;
